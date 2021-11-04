@@ -15,16 +15,9 @@ const notes = [{
     body: "Get a new seat"
 },]
 
-const ps = document.querySelectorAll("p")
 
-ps.forEach((e)=> {
-    e.textContent = "Hello World"
-    //console.log(e.textContent);
+const button = document.querySelector("button");
+
+button.addEventListener("click",function(e){
+    console.log("did this work");
 })
-
-
-const newParagraph = document.createElement("p");
-newParagraph.textContent = "This is new element from JS";
-
-
-document.body.appendChild(newParagraph); 

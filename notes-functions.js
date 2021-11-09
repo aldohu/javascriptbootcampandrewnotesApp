@@ -1,4 +1,4 @@
-const getSavedNotes = function(){
+const getSavedNotes = function(notes){
     const notesJSON = localStorage.getItem("notes");
 
     if(notesJSON !== null){
@@ -11,12 +11,24 @@ const getSavedNotes = function(){
 //Generate the dom structure for a note
 
 const generateNoteDOM = function (note) {
-    const noteEl = document.createElement('p')
-        if(note.title.length> 0) {
-        noteEl.textContent = note.title;   
+    
+    const noteEl = document.createElement('div');
+    const textEl = document.createElement("span");
+    const button = document.createElement("button");
+   //setup the remove ntoe button
+
+   
+    noteEl.append(button);
+    button.textContent = "x";
+
+    //set note title text
+    if(note.title.length> 0) {
+        textEl.textContent = note.title;   
     }else {
-        noteEl.textContent= "Unnamed note"
+        textEl.textContent= "Unnamed note"
     }
+   
+    noteEl.append(textEl)
     return noteEl;
 }
 //Render applicatin notes
